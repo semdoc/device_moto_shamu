@@ -431,3 +431,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Low latency audio buffer size in frames
 PRODUCT_PROPERTY_OVERRIDES += \
     audio_hal.period_size=192
+
+# TWRP lollipop decrypt proprietaries
+$(shell mkdir -p out/target/product/shamu/recovery/root/vendor/firmware/keymaster)
+$(shell mkdir -p out/target/product/shamu/recovery/root/vendor/lib/hw)
+
+PRODUCT_COPY_FILES += \
+    device/moto/shamu/recovery/keymaster.b00:recovery/root/vendor/firmware/keymaster/keymaster.b00 \
+    device/moto/shamu/recovery/keymaster.b01:recovery/root/vendor/firmware/keymaster/keymaster.b01 \
+    device/moto/shamu/recovery/keymaster.b02:recovery/root/vendor/firmware/keymaster/keymaster.b02 \
+    device/moto/shamu/recovery/keymaster.b03:recovery/root/vendor/firmware/keymaster/keymaster.b03 \
+    device/moto/shamu/recovery/keymaster.mdt:recovery/root/vendor/firmware/keymaster/keymaster.mdt \
+    device/moto/shamu/recovery/keystore.msm8084.so:recovery/root/vendor/lib/hw/keystore.msm8960.so \
+    device/moto/shamu/recovery/libQSEEComAPI.so:recovery/root/sbin/libQSEEComAPI.so
